@@ -30,9 +30,10 @@ const mainNavItems = [
     title: "About",
     href: "#",
     children: [
-      { title: "About Us", href: "/about" },
+      { title: "Overview", href: "/about" },
       { title: "Vision & Mission", href: "/vision-mission" },
       { title: "Leadership", href: "/leadership" },
+      { title: "History", href: "/leadership" },
       { title: "Infrastructure", href: "/infrastructure" },
     ],
   },
@@ -40,44 +41,62 @@ const mainNavItems = [
     title: "Academics",
     href: "#",
     children: [
-      { title: "Departments", href: "/departments" },
-      { title: "Programs", href: "/programs" },
-      { title: "Academic Calendar", href: "/academic-calendar" },
-      { title: "Examinations", href: "/examinations" },
+      { title: "Overview", href: "/departments" },
+      { title: "School of Engineering & Technology", href: "/programs" },
+      { title: "School of Arts, Humanities And Management", href: "/academic-calendar" },
+      { title: "School of Science and Allied Health Science", href: "/examinations" },
+      { title: "CSD", href: "/examinations" },
+      { title: "Dean", href: "/examinations" },
+      { title: "Examination", href: "/examinations" },
+      { title: "Paperless Exams", href: "/examinations" },
+      { title: "Academic Calendar", href: "/examinations" },
+      { title: "Convocation", href: "/examinations" },
+
     ],
   },
   {
-    title: "Admissions",
+    title: "Approvals and Affiliation",
     href: "#",
     children: [
-      { title: "Admission Process", href: "/admission-process" },
-      { title: "Eligibility", href: "/eligibility" },
-      { title: "Fee Structure", href: "/fee-structure" },
-      { title: "Scholarships", href: "/scholarships" },
+      { title: "Gazette", href: "/departments" },
+      { title: "G.O", href: "/programs" },
+      { title: "Awards", href: "/academic-calendar" },
+      { title: "Annual Report 2023-24", href: "/examinations" },
     ],
   },
   {
     title: "Research",
     href: "/research",
-  },
-  {
-    title: "Campus Life",
-    href: "#",
     children: [
-      { title: "Facilities", href: "/facilities" },
-      { title: "Clubs & Societies", href: "/clubs" },
-      { title: "Events", href: "/events" },
-      { title: "Sports", href: "/sports" },
+      { title: "Supervisors", href: "/facilities" },
+      { title: "Regulations for Doctor of Philosophy", href: "/clubs" },
     ],
   },
   {
-    title: "Placements",
-    href: "/placements",
+    title: "Student Life",
+    href: "#",
+    children: [
+      { title: "Facilities", href: "/facilities" },
+      { title: "Campus Experience", href: "/clubs" },
+      { title: "Freshers Day", href: "/events" },
+      { title: "Fitness & Sports", href: "/sports" },
+      { title: "Support & Guidance", href: "/sports" },
+      { title: "Sport Events", href: "/sports" },
+      { title: "Students Activities", href: "/sports" },
+      { title: "Library", href: "/sports" },
+      { title: "Transportation", href: "/sports" },
+      { title: "Hostel", href: "/sports" },
+      { title: "Placement Cell Record", href: "/sports" },
+    ],
   },
   {
-    title: "Contact",
-    href: "/contact",
-  },
+    title: "Events",
+    href: "/placements",
+    children: [
+      { title: "News and Events", href: "/facilities" },
+      { title: "Extensive Activities", href: "/clubs" },
+    ],
+  }
 ]
 
 export default function Header() {
@@ -234,7 +253,7 @@ export default function Header() {
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Search</span>
               </Button>
-              <Button
+              {/*<Button
                 variant={isScrolled ? "default" : "outline"}
                 className={cn(
                   "hidden md:inline-flex",
@@ -242,7 +261,7 @@ export default function Header() {
                 )}
               >
                 Apply Now
-              </Button>
+              </Button>*/}
               <Button
                 variant="ghost"
                 size="icon"

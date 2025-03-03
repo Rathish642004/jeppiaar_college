@@ -74,7 +74,7 @@ export default function HeroSection() {
               </h2>
               <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">{slide.title}</h1>
               <p className="mx-auto mb-8 max-w-2xl text-lg text-white/80">{slide.description}</p>
-              <div className="flex flex-wrap justify-center gap-4">
+              {/*<div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="font-medium">
                   Apply Now
                 </Button>
@@ -85,7 +85,7 @@ export default function HeroSection() {
                 >
                   Explore Programs
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
