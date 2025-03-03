@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-
 import {
   Menu,
   X,
@@ -87,19 +86,23 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const heroSection = document.getElementById("hero-section")
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
+        setIsScrolled(window.scrollY > heroBottom - 80) // 80px before the hero section ends
+      }
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
-    <header className="fixed top-0 z-50 w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Bar */}
       <div
         className={cn(
-          "hidden bg-primary py-2 text-white transition-all duration-300 md:block",
-          isScrolled ? "py-1" : "py-2",
+          "bg-primary py-2 text-white transition-all duration-300",
+          isScrolled ? "opacity-100" : "opacity-0 pointer-events-none",
         )}
       >
         <div className="container mx-auto flex items-center justify-between px-4">
@@ -146,16 +149,16 @@ export default function Header() {
       <div
         className={cn(
           "w-full transition-all duration-300",
-          isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg py-2" : "bg-white/95 py-4",
+          isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4",
         )}
       >
-        <div className="container mx-auto px-2">
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
             <div className="relative h-[75px] w-[300px]">
               <Image
-                src="/images/jpr-logo.png"
+                src="/images/jpr-log.png"
                 alt="Jeppiaar College Logo"
                 fill
                 className="object-cover"
@@ -187,7 +190,13 @@ export default function Header() {
                     {item.children ? (
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" className="flex items-center space-x-1 text-base font-medium">
+                          <Button
+                            variant="ghost"
+                            className={cn(
+                              "flex items-center space-x-1 text-base font-medium",
+                              isScrolled ? "text-foreground" : "text-white",
+                            )}
+                          >
                             <span>{item.title}</span>
                             <ChevronDown className="h-4 w-4" />
                           </Button>
@@ -202,7 +211,10 @@ export default function Header() {
                       </DropdownMenu>
                     ) : (
                       <Link href={item.href}>
-                        <Button variant="ghost" className="text-base font-medium">
+                        <Button
+                          variant="ghost"
+                          className={cn("text-base font-medium", isScrolled ? "text-foreground" : "text-white")}
+                        >
                           {item.title}
                         </Button>
                       </Link>
@@ -214,14 +226,29 @@ export default function Header() {
 
             {/* Action Buttons */}
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="icon" className="hidden md:flex">
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn("hidden md:flex", isScrolled ? "text-foreground" : "text-white")}
+              >
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Search</span>
               </Button>
-              <Button variant="default" className="hidden md:inline-flex">
+              <Button
+                variant={isScrolled ? "default" : "outline"}
+                className={cn(
+                  "hidden md:inline-flex",
+                  !isScrolled && "border-white text-white hover:bg-white hover:text-primary",
+                )}
+              >
                 Apply Now
               </Button>
-              <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setIsMobileMenuOpen(true)}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn("lg:hidden", isScrolled ? "text-foreground" : "text-white")}
+                onClick={() => setIsMobileMenuOpen(true)}
+              >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Menu</span>
               </Button>

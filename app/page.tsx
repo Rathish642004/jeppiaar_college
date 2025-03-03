@@ -12,9 +12,9 @@ import PartnersSection from "@/components/partners-section"
 
 export default function Home() {
   return (
-    <div className="min-h-screen pt-[140px] md:pt-[160px]">
+    <div className="min-h-screen">
       <HeroSection />
-      <NewsTicker />
+      {/*<NewsTicker />*/}
       <AboutSection />
       <StatisticsSection />
       <DepartmentsSection />

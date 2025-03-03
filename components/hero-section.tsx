@@ -7,26 +7,33 @@ import { Button } from "@/components/ui/button"
 const slides = [
   {
     id: 1,
-    image: "/placeholder.svg?height=800&width=1600",
+    image: "/images/hero-image.jpg",
+    /*
     title: "Shaping Future Leaders",
     subtitle: "Excellence in Education, Innovation in Research",
     description:
       "Jeppiaar College of Engineering and Technology provides world-class education with state-of-the-art facilities.",
+    */
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=800&width=1600",
-    title: "Discover Your Potential",
-    subtitle: "Innovative Learning Environment",
+    image: "/images/2.jpg",
+    /*
+    title: "Shaping Future Leaders",
+    subtitle: "Excellence in Education, Innovation in Research",
     description:
-      "Our cutting-edge programs and dedicated faculty help students achieve their academic and career goals.",
+      "Jeppiaar College of Engineering and Technology provides world-class education with state-of-the-art facilities.",
+    */
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=800&width=1600",
-    title: "Building Tomorrow's Innovators",
-    subtitle: "Research, Innovation, Excellence",
-    description: "Join our community of scholars and innovators to make a difference in the world.",
+    image: "/images/12[2].jpg",
+    /*
+    title: "Shaping Future Leaders",
+    subtitle: "Excellence in Education, Innovation in Research",
+    description:
+      "Jeppiaar College of Engineering and Technology provides world-class education with state-of-the-art facilities.",
+    */
   },
 ]
 
@@ -41,7 +48,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden lg:h-[80vh]">
+    <section id="hero-section" className="relative h-[700px] max-h-[700px] min-h-[500px] w-full overflow-hidden lg:h-[80vh]">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
